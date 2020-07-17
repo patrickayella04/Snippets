@@ -14,6 +14,26 @@ xhr.onload = function () {
 // xhr.open('GET', 'header.html', true);
 xhr.open('GET', 'colors.html', true);
 xhr.send(null); 
+/////////////////////////////////////////
+
+document.getElementById('button').addEventListener('click', loadData);
+
+function loadData() {
+    // create an XHR object
+    const xhr = new XMLHttpRequest();
+
+    // OPEN 
+    xhr.open('GET', 'data.text', true);
+
+    xhr.onload = function () {
+        if (this.status === 200) {
+            console.log(this.responseText);
+        }
+    }
+
+
+    xhr.send();
+}
 
 
     
