@@ -1,0 +1,178 @@
+/* Global*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0; 
+}
+.container {
+    width: 100%;
+    margin: auto; 
+}
+/*Variables
+Using css variabls, we use double dash to create the variable name and apply the valaue after the colon. Then we apply var() with the variable name inside the parenthesis var(--animation-curve)*/
+:root {
+    --animation-curve: cubic-bezier(1,0,0,1);
+    /* cubic-bezier(1,0,0,1): A cubic Bézier curve is defined by four points P0, P1, P2, and P3. P0 and P3 are the start and the end of the curve and, in CSS these points are fixed as the coordinates are ratios (the abscissa the ratio of time, the ordinate the ratio of the output range). P0 is (0, 0) and represents the initial time and the initial state, P3 is (1, 1) and represents the final time and the final state.*/
+}
+
+/*Variables end*/
+
+.find {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    background-color: #471247;
+    color: #ffffff;
+    height: 60px;
+}
+
+.find li {
+    margin-left: 8%;
+}
+.find a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: ease-in 200ms;
+}
+.find a:hover {
+    color: #e7e7e7;
+}
+
+.hover-underline:link::before {
+    content: '';
+    position: absolute;
+    width: 4%;
+    height: 2px;
+    bottom: 535px;
+    visibility: hidden;
+
+    background-color: #ffffff;
+    transform: scale(1);
+    
+    transition: ease-in 200ms;
+}
+.hover-underline:link:hover::before {
+    transform: scale(1);
+    
+    background-color: #f37085;
+    visibility: visible;
+}
+
+.selling-list, .buying-list, .letting-list, .renting-list {
+    list-style: none;
+    text-decoration: none;
+    background-color: #471247;
+    width: 20%;
+    position: relative;
+    left: 15%;
+    /* padding: 10px; */
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 5px;
+}
+
+.selling-list li, .buying-list li, .letting-list li, .renting-list li {
+    padding: 10px;
+}
+
+.selling-list a, .buying-list a, .letting-list a, .renting-list a  {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+.selling-list li:hover, .buying-list li:hover, .letting-list li:hover, .renting-list li:hover {
+    background-color: #d069d0;
+}
+
+ul.selling-list, ul.buying-list, ul.letting-list, ul.renting-list {
+    display: none;
+}
+
+ul.selling-list.show-selling, ul.buying-list.show-selling, ul.letting-list.show-selling, ul.renting-list.show-selling {
+    display: block;
+}
+
+.buying-list  {
+    position: relative;
+    left: 26%;
+} 
+.letting-list  {
+    position: relative;
+    left: 38%;
+} 
+.renting-list  {
+    position: relative;
+    left: 50%;
+} 
+
+/*///////////////////////////////////////////////////////////
+Hamburger menue 2
+/*/
+ 
+#toggle-2 {
+    visibility: hidden;
+}
+label.navi-toggle-2 {
+    display: inline-block;
+    width: 17px;
+    height: 2.1px;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-top: 6px;
+    /* margin-top: 3px; */
+}
+
+label.navi-toggle-2::after {
+    content: "";
+    width: 17px;
+    height: 2.1px;
+    background-color: #ffffff;
+    display: block;
+    left: 0;
+    margin-top: 11px; 
+    cursor: pointer;
+
+    transform-origin: left bottom; /* 2. */
+    transform:rotateZ(0deg);/* 3. */
+
+    transition: all 0.6s var(--animation-curve)  ;
+}
+label.navi-toggle-2::before {
+    content: "";
+    width: 17px;
+    height: 2.1px;
+    background-color: #ffffff;
+    display: block;
+    left: 0;
+    margin-top: -6px;
+    cursor: pointer;
+
+    transform-origin: left top; /* 2. */
+    transform:rotateZ(0deg); /* 3. */
+
+    transition: all 0.6s var(--animation-curve); 
+} 
+
+#toggle-2:checked ~ label.navi-toggle-2::before { 
+    /* background-color: #ff0000; */
+    /* transform: rotateZ(41deg); */
+    transform: rotateZ(54deg); /* 1. How to create rotation of an element to a degree in order to make the animation of the hamburger turn into to an X close btn.*/
+} 
+
+/* (~) selects the siblings of the element - thus once the checkbox is checked its sibiling element which is the label will change according to what css style you choose*/
+
+#toggle-2:checked ~ label.navi-toggle-2::after {
+    /* background-color: #ff0000; */
+    transform: rotateZ(-54deg); /* 1. */
+}
+#toggle-2:checked ~ label.navi-toggle-2 {
+    background-color: #471247;
+    /*the initial psuedo element changes to background color, essentially is hidden, when toggle is checked thus allowing before and after pseudo elements to rotate and create X btn*/
+}
+#toggle-2 ~ label.navi-toggle-2 {
+    transition: all 0.5s var(--animation-curve)  ;
+} /*Here we make the initial lable animation disapear faster (0.5s instead of 0.6s) than its pseudo elements*/
+ 
+/*
+Hamburger menue - test build - end */
