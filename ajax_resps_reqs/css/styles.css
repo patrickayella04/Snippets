@@ -4,13 +4,14 @@
     margin: 0; 
 
 }
-.title, .fractions, .question, button {
+.title, .fractions, .question, button, #first-q-con, 
+#sec-q-con {
     box-shadow: 5px 5px 5px #808080;
     border-radius: 10px;
     margin-bottom: 20px;
     border: #000000 1px solid;
 }
-.fractions, .question, button {
+.fractions, .question, button, #first-q-con, #sec-q-con  {
     width: fit-content;
     margin-left: 10px;
 }
@@ -32,11 +33,17 @@
     padding: 25px;
 }
 
-button {
+button, #sec-q-con,  #first-q-con {
     padding: 15px;
     background-color: #deb887;
     
 }
+
+/* #sec-q-con, #first-q-co {
+    padding: 
+} */
+
+
 
 
 
