@@ -28,7 +28,35 @@ function loadCustomer(e) {
     xhr.send();
 }
 
+document.getElementById('button2').addEventListener('click', loadCustomers);
 
+function loadCustomers(e) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'customers.json', true);
+
+    xhr.onload = function () {
+        if (this.status === 200) {
+            // console.log(this.responseText);
+
+            const customers = JSON.parse(this.responseText);
+
+            const outputing = 
+            `<ul>
+                    <li>ID: ${customers[0].id}</li>
+                    <li>Name: ${customers[1].name}</li>
+                    <li>Company: ${customers[2].company}</li> 
+                   
+                </ul>`;
+            
+            document.getElementById('customers').innerHTML = outputing;
+            
+
+        }
+    }
+
+    xhr.send();
+}
 
 
 
