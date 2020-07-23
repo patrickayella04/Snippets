@@ -1,6 +1,6 @@
 {
     "id": 1,
-    "house": "John Doe",
+    "name": "John Doe",
     "company": "123 Designs",
     "phone": "444-666-44"
 }

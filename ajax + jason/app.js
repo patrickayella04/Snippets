@@ -41,15 +41,30 @@ function loadCustomers(e) {
 
             const customers = JSON.parse(this.responseText);
 
-            const outputing = 
-            `<ul>
-                    <li>ID: ${customers[0].id}</li>
-                    <li>Name: ${customers[1].name}</li>
-                    <li>Company: ${customers[2].company}</li> 
+            let output = '';
+
+            customers.forEach(function (customer) {
+                // we append, if we equals it will overide the value of output, however by += we append each iteration, each new customer to that new output.
+                output +=
+                    `<ul>
+                    <li>ID: ${customer.id}</li>
+                    <li>Name: ${customer.name}</li>
+                    <li>Company: ${customer.company}</li> 
+                    <li>Phone: ${customer.phone}</li>
+                </ul>`; 
+            });
+
+            // const outputing = 
+            // `<ul>
+            //         <li> ${customers[0].name}</li>
+            //         <li> ${customers[1].name}</li>
+            //         <li> ${customers[2].name}</li> 
                    
-                </ul>`;
+            //     </ul>`;
+
+
             
-            document.getElementById('customers').innerHTML = outputing;
+            document.getElementById('customers').innerHTML = output;
             
 
         }
