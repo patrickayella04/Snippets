@@ -19,11 +19,13 @@ function getJokes(e) {
             if (response.type === 'success') {
                 // Check what the api reuturns, and the response may be an object. The data needed is its value, thus in this case the variable response.forEach is incorrect. response.value.forEach is correct. check the console.log to make sure each time the value you want is looping through the value and not the object.
                 response.value.forEach(function (joke) {
-                    
+                    output += `<li>${joke.joke}</li>`;
                 });
             } else {
                 output += '<li>Something went wrong</li>';
             }
+
+            document.querySelector('.jokes').innerHTML = output;
         }
     }
 
